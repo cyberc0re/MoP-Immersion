@@ -116,16 +116,6 @@ function NPC:PLAYER_STARTED_MOVING()
 end
 
 
-function NPC:NAME_PLATE_UNIT_ADDED()
-	self.TalkBox:UpdateNameplateAnchor()
-	return self.lastEvent
-end
-
-function NPC:NAME_PLATE_UNIT_REMOVED()
-	self.TalkBox:UpdateNameplateAnchor()
-	return self.lastEvent
-end
-
 function NPC:SUPER_TRACKING_CHANGED()
 	self:PlaySuperTrackedQuestToast(ImmersionAPI:GetSuperTrackedQuestID())
 	return self.lastEvent

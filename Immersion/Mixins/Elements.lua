@@ -250,20 +250,7 @@ function Elements:ShowGroupSize()
 	end
 end
 
-function Elements:ShowSeal()
-	local frame = self.Content.SealFrame
-	if ACTIVE_TEMPLATE and ACTIVE_TEMPLATE.canHaveSealMaterial then
-		local sealInfo = SEAL_QUESTS[GetQuestID()]
-		if sealInfo then
-			frame.Text:SetText(sealInfo.text)
-			frame.Texture:SetAtlas(sealInfo.sealAtlas, true) 
-			frame.Texture:SetPoint('TOPLEFT', ACTIVE_TEMPLATE.sealXOffset, ACTIVE_TEMPLATE.sealYOffset)
-			frame:Show()
-			return frame
-		end
-	end
-	return frame:Hide()
-end
+
 
 ----------------------------------
 -- Quest reward handling
@@ -375,11 +362,6 @@ function Elements:ShowRewards()
 				questItem:SetID(i)
 				questItem:Show()
 
-				-- Handle Blizzard's new Shadowlands shenanigans
-				local newType = LOOT_ITEM_TYPES[GetQuestItemInfoLootType(questItem.type, i)]
-				if newType then
-					questItem.objectType = newType;
-				end
 
 				UpdateItemInfo(questItem)
 
@@ -747,7 +729,7 @@ function Elements:ShowProgress(material)
 		end
 
 		for i=1, numRequiredItems do	
-			local hidden = IsQuestItemHidden(i)
+			local hidden = 0
 			if ( hidden == 0 ) then
 				local requiredItem = GetItemButton(self, buttonIndex, 'ProgressItem')
 				requiredItem.type = 'required'

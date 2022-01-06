@@ -147,8 +147,7 @@ end
 function NPC:SetBackground(kit)
 	local backgroundFrame = self.TalkBox.BackgroundFrame;
 	local overlay = backgroundFrame.OverlayKit;
-	--if kit and not L('disablebgtextures') then
-	if kit then
+	if kit and not L('disablebgtextures') then
 		local backgroundAtlas = GetFinalNameFromTextureKit('QuestBG-%s', kit)
 		local atlasInfo = C_Texture.GetAtlasInfo(backgroundAtlas)
 		if atlasInfo then
@@ -175,7 +174,7 @@ function NPC:ResetElements(event)
 	if ( self.IgnoreResetEvent[event] ) then return end
 	
 	self.Inspector:Hide()
-	--self.TalkBox.Elements:Reset()
+	self.TalkBox.Elements:Reset()
 	self:SetBackground(nil)
 end
 
