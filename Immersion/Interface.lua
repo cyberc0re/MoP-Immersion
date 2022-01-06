@@ -7,8 +7,8 @@ function API:IsClassic(...) return IS_CLASSIC end
 function API:IsRetail(...)  return IS_RETAIL  end
 
 API.ITERATORS = {
-	GOSSIP    = IS_CLASSIC and 2 or IS_RETAIL and 2;
-	ACTIVE    = IS_CLASSIC and 6 or IS_RETAIL and 7;
+	GOSSIP    = 2;
+	ACTIVE    = 5;
 	AVAILABLE = 6;
 }
 
