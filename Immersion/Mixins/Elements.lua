@@ -69,8 +69,6 @@ local function UpdateItemInfo(self)
 		return true
 	elseif self.objectType == 'currency' then
 		local name, texture, amount, quality = GetQuestCurrencyInfo(self.type, self:GetID())
-		local currencyID = GetQuestCurrencyID(self.type, self:GetID())
-		name, texture, amount, quality = CurrencyContainerUtil.GetCurrencyContainerInfo(currencyID, amount, name, texture, quality)
 		-- For the tooltip
 		self.Name:SetText(name)
 		self.itemTexture = texture
