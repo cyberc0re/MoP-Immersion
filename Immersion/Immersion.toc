@@ -20,6 +20,7 @@ Compat.lua
 Interface.lua
 Pools.lua
 SoundKitConstants.lua
+C_Timer.lua
 
 # Extra stuff & config
 Utils.lua
