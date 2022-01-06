@@ -529,7 +529,7 @@
 												<Size x="20" y="18"/>
 												<Layers>
 													<Layer level="ARTWORK">
-														<Texture parentKey="MoneyIcon" file="Interface\ContainerFrame\Bags">
+														<Texture parentKey="MoneyIcon" file="Interface\AddOns\Immersion\Textures\bags.blp">
 															<Size x="20" y="18" />
 															<TexCoords left="0.863281" right="0.941406" top="0.28125" bottom="0.351562" />
 														</Texture>

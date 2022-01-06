@@ -487,7 +487,7 @@ end
 
 function NPC:OnKeyUp(button)
 	local inspector = self.Inspector
-	if ( inspector.ShowFocusedTooltip and ( self:IsInspectModifier(button) or button:match('SHIFT') ) ) then
+	if ( inspector.ShowFocusedTooltip and ( self:IsInspectModifier(button) ) ) then
 		inspector:ShowFocusedTooltip(false)
 	elseif ( self:IsInspectModifier(button) and inspector:IsVisible() ) then
 		inspector:Hide()
