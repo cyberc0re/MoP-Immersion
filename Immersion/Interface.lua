@@ -9,7 +9,7 @@ function API:IsRetail(...)  return IS_RETAIL  end
 API.ITERATORS = {
 	GOSSIP    = IS_CLASSIC and 2 or IS_RETAIL and 2;
 	ACTIVE    = IS_CLASSIC and 6 or IS_RETAIL and 7;
-	AVAILABLE = IS_CLASSIC and 7 or IS_RETAIL and 8;
+	AVAILABLE = 6;
 }
 
 -- Chunk iterators
@@ -101,7 +101,7 @@ function API:QuestFlagsPVP(...)
 end
 
 function API:GetQuestIconOffer(quest)
-	if QuestUtil.GetQuestIconOffer then
+	if QuestUil and QuestUtil.GetQuestIconOffer then
 		return QuestUtil.GetQuestIconOffer(
 			quest.isLegendary,
 			quest.frequency,
@@ -118,7 +118,7 @@ function API:GetQuestIconOffer(quest)
 end
 
 function API:GetQuestIconActive(quest)
-	if QuestUtil.GetQuestIconActive then
+	if QuestUtil and QuestUtil.GetQuestIconActive then
 		return QuestUtil.GetQuestIconActive(
 			quest.isComplete,
 			quest.isLegendary,
