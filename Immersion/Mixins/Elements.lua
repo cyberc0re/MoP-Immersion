@@ -129,24 +129,23 @@ function Elements:Display(template, material)
 	local elementsTable = template.elements
 	local height, lastFrame = 0
 	for i = 1, #elementsTable, 3 do
-		if elementsTable[i](self) then
-			local shownFrame, bottomShownFrame = elementsTable[i](self)
-			if ( shownFrame ) then
-				shownFrame:SetParent(content)
-				height = height + shownFrame:GetHeight() + abs(elementsTable[i+2])
-				if ( lastFrame ) then
-					shownFrame:SetPoint('TOPLEFT', lastFrame, 'BOTTOMLEFT', elementsTable[i+1], elementsTable[i+2])
-				else
-					shownFrame:SetPoint('TOPLEFT', content, 'TOPLEFT', elementsTable[i+1] , elementsTable[i+2] + 10)
-				end
-				shownFrame:Show()
-				self.Active[#self.Active + 1] = shownFrame
-				lastFrame = bottomShownFrame or shownFrame
+		local shownFrame, bottomShownFrame = elementsTable[i](self)
+		if ( shownFrame ) then
+			shownFrame:SetParent(content)
+			height = height + shownFrame:GetHeight() + abs(elementsTable[i+2])
+			if ( lastFrame ) then
+				shownFrame:SetPoint('TOPLEFT', lastFrame, 'BOTTOMLEFT', elementsTable[i+1], elementsTable[i+2])
+			else
+				shownFrame:SetPoint('TOPLEFT', content, 'TOPLEFT', elementsTable[i+1] , elementsTable[i+2] + 10)
 			end
+			shownFrame:Show()
+			self.Active[#self.Active + 1] = shownFrame
+			lastFrame = bottomShownFrame or shownFrame
 		end
-		return height
 	end
+	return height
 end
+
 
 function Elements:SetMaterial(material)
 	local progress = self.Progress
@@ -797,7 +796,6 @@ TEMPLATE.QUEST_DETAIL = { chooseItems = nil, contentWidth = 507,
 		Elements.ShowSpecialObjectives, 0, -10,
 		Elements.ShowGroupSize, 0, -10,
 		Elements.ShowRewards, 0, -15,
-		Elements.ShowSeal, 0, 0,
 	}
 }
 

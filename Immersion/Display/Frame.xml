@@ -356,7 +356,7 @@
 							</OnLoad>
 						</Scripts>
 						<Frames>
-							<Frame parentKey="Content" name="ImmersionContentFrame" hidden="true">
+							<Frame parentKey="Content" name="ImmersionContentFrame">
 								<Size x="570" y="403"/>
 								<Anchors>
 									<Anchor point="TOPLEFT" x="24" y="-16"/>
